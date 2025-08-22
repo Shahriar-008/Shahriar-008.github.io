@@ -16,7 +16,7 @@ timezone: "Asia/Dhaka"
 
 title: Shahriar Hussain # the main title
 
-tagline:  Backend Engineering & DevOps Enthusiast # it will display as the subtitle
+tagline: Backend Engineering & DevOps Enthusiast # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
   Backend Engineering & DevOps Enthusiast 
