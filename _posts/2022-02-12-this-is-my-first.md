@@ -1,6 +1,6 @@
 ---
 title: Welcome to My Blog
-date: 2026-01-13 12:00:00 -0500
+date: 2024-01-13 12:00:00 -0500
 categories: [general, introduction]
 tags: [welcome, blog, journey]
 ---
