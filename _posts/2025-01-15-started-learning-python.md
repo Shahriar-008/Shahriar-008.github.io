@@ -1,6 +1,6 @@
 ---
 title: Started Learning Python Today!
-date: 2024-01-15 12:00:00 -0500
+date: 2025-01-15 12:00:00 -0500
 categories: [programming, learning]
 tags: [python]
 ---
