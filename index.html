@@ -1698,7 +1698,7 @@
                         <ul class="about-sidebar-list">
                             <li>Open for DevSecOps &amp; Backend roles</li>
                             <li>Building production systems in Python</li>
-                            <li>Writing at shahariar.iam.bd</li>
+                            <li>Writing at shahariar.iam.bd/blog</li>
                         </ul>
                     </div>
                 </div>
@@ -1717,7 +1717,7 @@
                 <div class="blog-loading" id="blog-loading">Loading posts...</div>
             </div>
             <div class="blog-visit-all reveal">
-                <a href="https://shahariar.iam.bd/" target="_blank" rel="noopener">View all posts <span
+                <a href="https://shahariar.iam.bd/blog/" target="_blank" rel="noopener">View all posts <span
                         style="margin-left:4px;">↗</span></a>
             </div>
         </div>
@@ -2117,7 +2117,7 @@
                             rel="noopener">LinkedIn</a></li>
                     <li><a href="https://x.com/Shahriarhj" target="_blank" rel="noopener">Twitter</a></li>
                     <li><a href="https://dev.to/shahriar" target="_blank" rel="noopener">Dev.to</a></li>
-                    <li><a href="https://shahariar.iam.bd/" target="_blank" rel="noopener">Blog</a></li>
+                    <li><a href="https://shahariar.iam.bd/blog/" target="_blank" rel="noopener">Blog</a></li>
                 </ul>
             </div>
         </div>
@@ -2178,20 +2178,31 @@
         (async function fetchBlogPosts() {
             const blogGrid = document.getElementById('blog-grid');
             const loadingEl = document.getElementById('blog-loading');
+            const blogHomeUrl = 'https://shahariar.iam.bd/blog/';
+            const blogFeedUrl = `${blogHomeUrl}feed.xml`;
+
+            function normalizeBlogUrl(url) {
+                if (!url) return blogHomeUrl;
+
+                return url
+                    .replace('https://shahriar-008.github.io/posts/', `${blogHomeUrl}posts/`)
+                    .replace('https://shahariar.iam.bd/posts/', `${blogHomeUrl}posts/`)
+                    .replace(/^\/posts\//, `${blogHomeUrl}posts/`);
+            }
 
             const fallbackPosts = [
                 {
                     title: 'Started Learning Python Today!',
                     date: 'Jan 15, 2025',
                     excerpt: 'Today marks an exciting milestone in my programming journey — I started learning Python, one of the most popular and beginner-friendly programming languages...',
-                    url: 'https://shahariar.iam.bd/posts/started-learning-python/',
+                    url: `${blogHomeUrl}posts/started-learning-python/`,
                     categories: ['programming', 'learning']
                 },
                 {
                     title: 'Welcome to My Blog',
                     date: 'Jan 13, 2025',
                     excerpt: 'Thank you for visiting my blog! I\'m excited to share this space where I\'ll be documenting my journey, insights, and learnings...',
-                    url: 'https://shahariar.iam.bd/posts/this-is-my-first/',
+                    url: `${blogHomeUrl}posts/this-is-my-first/`,
                     categories: ['general']
                 }
             ];
@@ -2225,7 +2236,7 @@
             try {
                 const response = await fetch(
                     'https://api.rss2json.com/v1/api.json?rss_url=' +
-                    encodeURIComponent('https://shahariar.iam.bd/feed.xml')
+                    encodeURIComponent(blogFeedUrl)
                 );
                 const data = await response.json();
 
@@ -2246,7 +2257,7 @@
                             title: item.title,
                             date: dateStr,
                             excerpt: excerpt,
-                            url: item.link,
+                            url: normalizeBlogUrl(item.link),
                             categories: item.categories || []
                         };
                     });
