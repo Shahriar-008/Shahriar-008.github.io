@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="borderGradient" x1="24" y1="24" x2="232" y2="232" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4DF4FF"/>
+      <stop offset="1" stop-color="#2E63FF"/>
+    </linearGradient>
+    <linearGradient id="hGradient" x1="153" y1="58" x2="236" y2="182" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3BF3E8"/>
+      <stop offset="1" stop-color="#1E7EFF"/>
+    </linearGradient>
+    <linearGradient id="sGradient" x1="57" y1="58" x2="165" y2="182" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#E8EDF8"/>
+    </linearGradient>
+    <linearGradient id="swooshGradient" x1="88" y1="197" x2="222" y2="150" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1B4F94"/>
+      <stop offset="0.55" stop-color="#FCFFFF"/>
+      <stop offset="1" stop-color="#18D0FF"/>
+    </linearGradient>
+    <filter id="outerGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="starGlow" x="-300%" y="-300%" width="700%" height="700%">
+      <feGaussianBlur stdDeviation="2"/>
+    </filter>
+  </defs>
+  <rect width="256" height="256" fill="#161B28"/>
+  <g filter="url(#outerGlow)">
+    <rect x="24" y="24" width="208" height="208" rx="38" fill="#151A28" stroke="url(#borderGradient)" stroke-width="10"/>
+    <path fill="url(#sGradient)" d="M64 90c0-18 14-32 34-32h56l-15 16H99c-10 0-17 7-17 16 0 9 6 14 17 17l36 7c20 4 30 16 30 33 0 20-15 35-38 35H57l14-16h54c12 0 20-7 20-17 0-9-6-14-18-17l-37-7c-17-3-26-16-26-35Z"/>
+    <path fill="url(#hGradient)" d="M153 58h25v44h34V58h24v124h-24v-58h-34v58h-25V58Z"/>
+    <path fill="url(#swooshGradient)" d="M85 192c34 8 92 3 137-39-12 32-46 56-106 56-14 0-24-2-31-5Z"/>
+  </g>
+  <g fill="#5AEEFF">
+    <circle cx="62" cy="66" r="2.2" filter="url(#starGlow)"/>
+    <circle cx="76" cy="80" r="3.4" filter="url(#starGlow)"/>
+    <circle cx="87" cy="72" r="1.8" filter="url(#starGlow)"/>
+    <circle cx="191" cy="191" r="2.8" filter="url(#starGlow)"/>
+    <circle cx="205" cy="181" r="1.6" filter="url(#starGlow)"/>
+    <circle cx="214" cy="195" r="1.4" filter="url(#starGlow)"/>
+  </g>
+</svg>
