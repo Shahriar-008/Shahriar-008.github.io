@@ -2414,39 +2414,67 @@
             }
 
             try {
-                const response = await fetch(
-                    'https://api.rss2json.com/v1/api.json?rss_url=' +
-                    encodeURIComponent(blogFeedUrl)
-                );
-                const data = await response.json();
+                const response = await fetch(blogFeedUrl);
+                const xmlText = await response.text();
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(xmlText, 'application/xml');
 
-                if (data.status === 'ok' && data.items && data.items.length > 0) {
-                    const posts = data.items.slice(0, 3).map(item => {
-                        const tmp = document.createElement('div');
-                        tmp.innerHTML = item.description || '';
-                        let excerpt = tmp.textContent || tmp.innerText || '';
-                        excerpt = excerpt.substring(0, 160).trim();
-                        if (excerpt.length >= 160) excerpt += '...';
+                // Check for parse error (browsers insert a <parsererror> node)
+                if (xmlDoc.querySelector('parsererror')) {
+                    throw new Error('XML parse error');
+                }
 
-                        const dateObj = new Date(item.pubDate);
-                        const dateStr = dateObj.toLocaleDateString('en-US', {
-                            year: 'numeric', month: 'short', day: 'numeric'
-                        });
+                const entries = xmlDoc.querySelectorAll('entry');
+                const posts = Array.from(entries).slice(0, 3).map(entry => {
+                    // Atom namespace — works with both NS-aware and simple selectors
+                    const getText = (tag) => {
+                        const el = entry.querySelector(tag);
+                        return el ? el.textContent.trim() : '';
+                    };
+                    const getAttr = (tag, attr) => {
+                        const el = entry.querySelector(tag);
+                        return el ? el.getAttribute(attr) || '' : '';
+                    };
 
-                        return {
-                            title: item.title,
-                            date: dateStr,
-                            excerpt: excerpt,
-                            url: normalizeBlogUrl(item.link),
-                            categories: item.categories || []
-                        };
+                    const title = getText('title');
+                    const link = getAttr('link', 'href') || '';
+                    const pubDate = getText('published');
+                    const summary = getText('summary');
+                    const categories = Array.from(entry.querySelectorAll('category'))
+                        .map(c => c.getAttribute('term') || c.textContent.trim())
+                        .filter(Boolean);
+
+                    // Parse date
+                    const dateObj = new Date(pubDate);
+                    const dateStr = dateObj.toLocaleDateString('en-US', {
+                        year: 'numeric', month: 'short', day: 'numeric'
                     });
+
+                    // Excerpt: use summary, strip any HTML residue
+                    const tmp = document.createElement('div');
+                    tmp.innerHTML = summary;
+                    let excerpt = (tmp.textContent || tmp.innerText || summary || '')
+                        .replace(/\s+/g, ' ').trim();
+                    if (excerpt.length > 160) {
+                        excerpt = excerpt.substring(0, 160).trimEnd() + '...';
+                    }
+
+                    return {
+                        title: title,
+                        date: dateStr,
+                        excerpt: excerpt,
+                        url: normalizeBlogUrl(link),
+                        categories: categories
+                    };
+                });
+
+                if (posts.length > 0) {
                     renderPosts(posts);
                 } else {
                     renderPosts(fallbackPosts);
                 }
             } catch (error) {
-                console.log('RSS fetch failed, using fallback posts:', error);
+                console.log('RSS feed fetch failed, using fallback posts:', error);
                 renderPosts(fallbackPosts);
             }
         })();
