@@ -126,6 +126,8 @@
                         "https://prosno-io.app/",
                         "https://github.com/Shahriar-008/question-generation-python-script",
                         "https://github.com/Shahriar-008/Forex-Lot-Size-Calculator",
+                        "https://shahariar.iam.bd/aimetadataremover/",
+                        "https://github.com/Shahriar-008/aimetadataremover",
                         "https://shahariar.iam.bd/blog/",
                         "https://github.com/Shahriar-008",
                         "https://www.linkedin.com/in/md-shahriar-hussain-852002308/"
@@ -219,6 +221,23 @@
                                 },
                                 "description": "Precision risk management tool for calculating optimal position sizes in Forex trading based on configurable parameters.",
                                 "keywords": "Python, Financial Modeling, CLI"
+                            }
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 6,
+                            "item": {
+                                "@type": "WebApplication",
+                                "@id": "https://shahariar.iam.bd/aimetadataremover/#app",
+                                "name": "AI Metadata Remover",
+                                "url": "https://shahariar.iam.bd/aimetadataremover/",
+                                "applicationCategory": "Privacy & Image Editing Tool",
+                                "operatingSystem": "Any (Web Browser)",
+                                "creator": {
+                                    "@id": "https://shahariar.iam.bd/#person"
+                                },
+                                "description": "Free 100% client-side privacy tool that surgically strips C2PA Content Credentials, generative AI prompts (Midjourney, ChatGPT, Stable Diffusion), and camera EXIF/GPS data in bulk with zero quality loss and no server uploads.",
+                                "keywords": "AI Metadata Remover, C2PA Remover, EXIF Cleaner, Client-Side Privacy, Web Workers"
                             }
                         }
                     ]
@@ -719,6 +738,250 @@
 
         .project-link:hover .project-link-arrow {
             transform: translateX(3px);
+        }
+
+        /* ========================================
+           TOOLS
+           ======================================== */
+        .tools-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .tool-card {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background-color: var(--surface);
+            padding: 48px;
+            transition: background-color 0.25s ease, border-color 0.25s ease;
+        }
+
+        .tool-card:hover {
+            background-color: #FAFBFC;
+        }
+
+        .tool-card-grid {
+            display: grid;
+            grid-template-columns: 1.25fr 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        .tool-badge-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .tool-badge-live {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-family: var(--font-body);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background-color: #E8F5E9;
+            color: #1B5E20;
+            border: 1px solid #C8E6C9;
+        }
+
+        .tool-status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: #2E7D32;
+            display: inline-block;
+            box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
+            animation: pulse-dot 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.9); }
+        }
+
+        .tool-badge-pill {
+            font-family: var(--font-body);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background-color: var(--bg);
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+        }
+
+        .tool-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .tool-tagline {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .tool-summary {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            margin-bottom: 24px;
+        }
+
+        .tool-impact {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .tool-impact li {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            padding: 4px 0 4px 20px;
+            position: relative;
+        }
+
+        .tool-impact li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--text-secondary);
+        }
+
+        .tool-impact strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .tool-impact code {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            background-color: rgba(0, 0, 0, 0.04);
+            padding: 1px 5px;
+            border-radius: 3px;
+            border: 1px solid var(--border);
+        }
+
+        .tool-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 28px;
+        }
+
+        .tool-actions {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        /* Tool Inspector Card (Terminal-style verification panel) */
+        .tool-inspector {
+            background-color: #0E1111;
+            border: 1px solid #23272A;
+            border-radius: var(--radius);
+            overflow: hidden;
+            font-family: 'IBM Plex Mono', monospace;
+            color: #E2E8F0;
+            font-size: 13px;
+        }
+
+        .tool-inspector-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 16px;
+            background-color: #171A1C;
+            border-bottom: 1px solid #23272A;
+        }
+
+        .tool-inspector-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .tool-inspector-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background-color: #383D42;
+        }
+
+        .tool-inspector-title {
+            font-size: 11px;
+            color: #8C96A0;
+            letter-spacing: 0.05em;
+        }
+
+        .tool-inspector-body {
+            padding: 18px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .tool-inspector-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+        }
+
+        .tool-inspector-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .tool-inspector-label {
+            color: #94A3B8;
+        }
+
+        .tool-inspector-val {
+            color: #F1F5F9;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tool-inspector-val.success {
+            color: #4ADE80;
+        }
+
+        .tool-inspector-val.badge-mono {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 2px 7px;
+            border-radius: 3px;
+            font-size: 11px;
+            color: #CBD5E1;
+        }
+
+        .tool-inspector-footer {
+            padding: 10px 16px;
+            background-color: #121517;
+            border-top: 1px solid #23272A;
+            font-size: 11px;
+            color: #64748B;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         /* ========================================
@@ -1539,6 +1802,15 @@
                 padding: 32px;
             }
 
+            .tool-card {
+                padding: 32px;
+            }
+
+            .tool-card-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
             .project-block-header {
                 flex-direction: column;
             }
@@ -1644,6 +1916,20 @@
                 padding: 24px;
             }
 
+            .tool-card {
+                padding: 24px;
+            }
+
+            .tool-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .tool-actions .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
             .contact-grid {
                 grid-template-columns: 1fr;
             }
@@ -1690,6 +1976,7 @@
             <ul class="nav-links" id="nav-links">
                 <li><a href="#expertise">Expertise</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#tools">Tools</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#blog">Blog</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -1942,6 +2229,118 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+         TOOLS
+         ============================ -->
+    <section id="tools" class="section-border">
+        <div class="container">
+            <p class="section-label reveal">Interactive Tools</p>
+            <h2 class="reveal" style="margin-bottom: 48px;">Tools</h2>
+
+            <div class="tools-list">
+                <div class="tool-card reveal">
+                    <div class="tool-card-grid">
+                        <div class="tool-card-main">
+                            <div class="tool-badge-row">
+                                <span class="tool-badge-live">
+                                    <span class="tool-status-dot"></span>
+                                    Live Web Tool
+                                </span>
+                                <span class="tool-badge-pill">100% In-Browser</span>
+                                <span class="tool-badge-pill">Zero Server Uploads</span>
+                            </div>
+
+                            <h3 class="tool-title">AI Metadata Remover</h3>
+                            <p class="tool-tagline">Client-Side C2PA, Generative AI Prompt &amp; Camera EXIF Stripper</p>
+
+                            <p class="tool-summary">
+                                A high-performance, privacy-first image sanitization utility built entirely for client-side execution. Surgically purges C2PA Content Credentials, IPTC AI tags, generative prompts (Midjourney, ChatGPT, Stable Diffusion, ComfyUI), and camera EXIF/GPS telemetry at the binary segment level before images are published or shared.
+                            </p>
+
+                            <ul class="tool-impact">
+                                <li><strong>100% In-Browser Privacy:</strong> Processes all files in local browser memory via HTML5 ArrayBuffers and Web Workers — images are never uploaded to any remote server and the tool functions fully offline.</li>
+                                <li><strong>C2PA &amp; JUMBF Provenance Purge:</strong> Strips cryptographic Content Credentials and IPTC digital source tags to prevent automated "Made with AI" labels across social media platforms.</li>
+                                <li><strong>Generative AI Recipe Stripping:</strong> Wipes embedded prompts, seeds, negative prompts, and ComfyUI workflow JSON from PNG chunks (<code>tEXt</code>, <code>iTXt</code>, <code>zTXt</code>) and JPEG/WebP headers.</li>
+                                <li><strong>Lossless Binary Processing:</strong> Surgically removes metadata markers without decompressing or recompressing image raster data, preserving 100% original visual fidelity, resolution, and ICC profiles.</li>
+                                <li><strong>Bulk Batch &amp; Safe Renaming:</strong> Multi-file drag-and-drop processing with one-click clean ZIP archive download and automated sequential renaming to mask model identifiers.</li>
+                            </ul>
+
+                            <div class="tool-stack">
+                                <span class="project-stack-tag">Vanilla JS</span>
+                                <span class="project-stack-tag">Web Workers</span>
+                                <span class="project-stack-tag">ArrayBuffer &amp; DataView</span>
+                                <span class="project-stack-tag">Binary Segment Parsing</span>
+                                <span class="project-stack-tag">C2PA / JUMBF</span>
+                                <span class="project-stack-tag">EXIF / IPTC / XMP</span>
+                                <span class="project-stack-tag">Lossless JPG/PNG/WebP</span>
+                                <span class="project-stack-tag">PWA / Offline Capable</span>
+                            </div>
+
+                            <div class="tool-actions">
+                                <a href="https://shahariar.iam.bd/aimetadataremover/" target="_blank" rel="noopener" class="btn btn-primary">
+                                    Open Tool <span class="btn-arrow">↗</span>
+                                </a>
+                                <a href="https://github.com/Shahriar-008/aimetadataremover" target="_blank" rel="noopener" class="btn btn-secondary">
+                                    GitHub <span class="btn-arrow">↗</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Verification & Security Telemetry Box -->
+                        <div class="tool-inspector" aria-label="Tool Architecture and Security Telemetry">
+                            <div class="tool-inspector-header">
+                                <div class="tool-inspector-dots">
+                                    <span class="tool-inspector-dot"></span>
+                                    <span class="tool-inspector-dot"></span>
+                                    <span class="tool-inspector-dot"></span>
+                                </div>
+                                <span class="tool-inspector-title">security-inspector: ~/aimetadataremover</span>
+                            </div>
+                            <div class="tool-inspector-body">
+                                <div class="tool-inspector-row">
+                                    <span class="tool-inspector-label">execution_model</span>
+                                    <span class="tool-inspector-val success">● 100% Client-Side</span>
+                                </div>
+                                <div class="tool-inspector-row">
+                                    <span class="tool-inspector-label">remote_telemetry</span>
+                                    <span class="tool-inspector-val">0 bytes (Air-gapped)</span>
+                                </div>
+                                <div class="tool-inspector-row">
+                                    <span class="tool-inspector-label">c2pa_jumbf</span>
+                                    <span class="tool-inspector-val success">[✓] Surgically Stripped</span>
+                                </div>
+                                <div class="tool-inspector-row">
+                                    <span class="tool-inspector-label">prompt_leakage</span>
+                                    <span class="tool-inspector-val success">[✓] Purged (tEXt/iTXt)</span>
+                                </div>
+                                <div class="tool-inspector-row">
+                                    <span class="tool-inspector-label">exif_gps_telemetry</span>
+                                    <span class="tool-inspector-val success">[✓] Sanitized</span>
+                                </div>
+                                <div class="tool-inspector-row">
+                                    <span class="tool-inspector-label">supported_formats</span>
+                                    <span class="tool-inspector-val badge-mono">JPG · PNG · WebP</span>
+                                </div>
+                                <div class="tool-inspector-row">
+                                    <span class="tool-inspector-label">raster_loss</span>
+                                    <span class="tool-inspector-val success">0.00% (Lossless)</span>
+                                </div>
+                                <div class="tool-inspector-row">
+                                    <span class="tool-inspector-label">offline_support</span>
+                                    <span class="tool-inspector-val">Service Worker / PWA</span>
+                                </div>
+                            </div>
+                            <div class="tool-inspector-footer">
+                                <span>status: verified</span>
+                                <span>v1.0.0 · production</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -2409,6 +2808,7 @@
                             rel="noopener">LinkedIn</a></li>
                     <li><a href="https://x.com/Shahriarhj" target="_blank" rel="noopener">Twitter</a></li>
                     <li><a href="https://dev.to/shahriar" target="_blank" rel="noopener">Dev.to</a></li>
+                    <li><a href="https://shahariar.iam.bd/aimetadataremover/" target="_blank" rel="noopener">Tools</a></li>
                     <li><a href="https://shahariar.iam.bd/blog/" target="_blank" rel="noopener">Blog</a></li>
                 </ul>
             </div>
